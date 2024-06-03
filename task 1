@@ -1,0 +1,25 @@
+import pandas as pd
+iris_df = pd.read_csv('https://raw.githubusercontent.com/uiuc-cse/data-fa14/gh-pages/data/iris.csv')
+print(iris_df.head())
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+print(iris_df.describe())
+plt.figure(figsize=(10, 6))
+sns.histplot(data=iris_df, x='sepal_length', kde=True)
+plt.title('Distribution of Sepal Lengths')
+plt.xlabel('Sepal Length')
+plt.ylabel('Frequency')
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=iris_df, x='sepal_length', y='sepal_width', hue='species')
+plt.title('Sepal Length vs. Sepal Width')
+plt.xlabel('Sepal Length')
+plt.ylabel('Sepal Width')
+plt.show()
+plt.figure(figsize=(8, 6))
+sns.heatmap(iris_df.corr(), annot=True, cmap='coolwarm')
+plt.title('Correlation Heatmap')
+plt.show()
+
+
